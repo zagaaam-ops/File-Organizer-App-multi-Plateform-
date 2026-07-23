@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../core/theme/app_theme.dart';
 import 'router.dart';
 
 class FastFileOrganizerApp extends StatelessWidget {
@@ -8,22 +9,12 @@ class FastFileOrganizerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Fast File Organizer',
-
       debugShowCheckedModeBanner: false,
-
+      title: 'FlowFiles',
       routerConfig: AppRouter.router,
-
+      theme: AppTheme.light(),
+      darkTheme: AppTheme.dark(),
       themeMode: ThemeMode.system,
-
-      theme: ThemeData(
-        colorSchemeSeed: Colors.blue,
-        useMaterial3: true,
-      ),
-
-      darkTheme: ThemeData.dark(
-        useMaterial3: true,
-      ),
     );
   }
 }
