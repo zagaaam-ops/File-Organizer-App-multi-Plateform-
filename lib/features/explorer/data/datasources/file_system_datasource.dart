@@ -9,9 +9,12 @@ class FileSystemDataSource {
     final dir = Directory(directory);
 
     if (!await dir.exists()) {
-      return [];
+      throw FileSystemException(
+        'Directory not found',
+        directory,
+      );
     }
 
-    return dir.list().toList();
+    return await dir.list(followLinks: false).toList();
   }
 }
